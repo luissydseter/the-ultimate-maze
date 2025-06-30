@@ -1,0 +1,17 @@
+{
+    "image1": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPD//wAAAP8P8ET0AAD/X///RPT/8F9S9EQigkjwVVIURCKCSPBVUkT0RIT/8FVSREREhP/wVVIURCKCSPBfUvREIoJIAP9f//9E9P8AAP8P8ET0AAAAAADw//8AAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "mysprite"
+    },
+    "image2": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPD/DwAAAPAA39HxAAAAD///Hf0AAAAA8PL//wAAAADw/////w8A8P/y//8AAAAP8P////8AAAAA8PH/8AAAAADfHf0AAAAA8BHR/QAAAADw0R3xAAAAAPAdHQ8AAAAAAP//AAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "butterfly"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
