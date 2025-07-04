@@ -2,8 +2,9 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
     mySprite.setVelocity(100, 0)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile22`, function (sprite, location) {
+    level = 3
     tiles.setCurrentTilemap(tilemap`level3`)
-    tiles.placeOnRandomTile(mySprite, assets.tile`myTile19`)
+    tiles.placeOnRandomTile(null, assets.tile`myTile19`)
     makeFlyte()
     i_like_to_move_it()
 })
@@ -20,10 +21,11 @@ function makeFlyte () {
     flyte.setVelocity(100, 0)
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile21`, function (sprite, location) {
+    level = 4
     tiles.setCurrentTilemap(tilemap`level4`)
     pixelsToMeters = 30
     pixelsToMeters = 5 * pixelsToMeters
-    tiles.placeOnRandomTile(mySprite, assets.tile`myTile11`)
+    tiles.placeOnRandomTile(null, assets.tile`myTile11`)
     i_like_to_move_it()
 })
 function moveFlyte () {
@@ -43,14 +45,11 @@ function moveFlyte () {
         flyte.setVelocity(100, 0)
     }
 }
-function i_like_to_move_it () {
-    controller.moveSprite(mySprite)
-    scene.cameraFollowSprite(mySprite)
-}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`magma2`, function (sprite, location) {
     game.reset()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`end`, function (sprite, location) {
+    level = 2
     tiles.setCurrentTilemap(tilemap`level2`)
     tiles.placeOnRandomTile(mySprite, assets.tile`myTile18`)
     i_like_to_move_it()
@@ -58,6 +57,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`end`, function (sprite, locat
 scene.onOverlapTile(SpriteKind.Player, assets.tile`treasure chest`, function (sprite, location) {
     coins += 10
 })
+function i_like_to_move_it () {
+    controller.moveSprite(mySprite)
+    scene.cameraFollowSprite(mySprite)
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.reset()
 })
@@ -65,10 +68,17 @@ let coins = 0
 let pixelsToMeters = 0
 let flyte: Sprite = null
 let mySprite: Sprite = null
-tiles.setCurrentTilemap(tilemap`level1`)
-mySprite = sprites.create(assets.image`mysprite`, SpriteKind.Player)
-tiles.placeOnRandomTile(mySprite, assets.tile`start`)
-i_like_to_move_it()
+let level = 0
+if (level == 0) {
+    level = 1
+    tiles.setCurrentTilemap(tilemap`level1`)
+    mySprite = sprites.create(assets.image`mysprite`, SpriteKind.Player)
+    tiles.placeOnRandomTile(mySprite, assets.tile`start`)
+    i_like_to_move_it()
+}
+if (level == 2) {
+    console.log("level 2")
+}
 game.onUpdate(function () {
     moveFlyte()
 })
